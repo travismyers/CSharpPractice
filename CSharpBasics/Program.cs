@@ -11,7 +11,7 @@ namespace CSharpBasics
             travis.HomeTown = "Sandusky";
             
             // Can't do this!! My Birthday can only be set when I'm born!!
-            // travis.Birthday = DateTime.UtcNow.AddDays(-365); //Uncomment this line and hover over the squiggly erro
+            // travis.Birthday = DateTime.UtcNow.AddDays(-365); //Uncomment this line and hover over the squiggly error
 
             System.Console.WriteLine("I wasn't born yesterday! Wait... yes I was.");
             Console.WriteLine("Happy Birthday " + travis.Name);
@@ -26,7 +26,7 @@ namespace CSharpBasics
     {
         // If you leave out the keyword 'set' it cannot be changed outside of the class.
         // Doing this is the same effect as having a private DateTime birthday
-        // And then exposing a method to 'get' the Person.Birthday without allowing
+        // Then you expose a method to 'get' the Person.Birthday without allowing
         // anyone to change the birthday. (Our birthday is immutable, it cannot change)
         public DateTime Birthday { get; }
 
@@ -42,7 +42,10 @@ namespace CSharpBasics
         // These get and set properties allow some control over data quality
         public string Address
         {
-            // Note: if you implement them, drop the semicolon and using a pair of braces
+            // Note: if you implement them, drop the semicolon and use a pair of braces
+            // This is the same as the 'auto-implemented' property 'Name' above
+            // By defining 'get' and 'set', we're overriding those methods with our own implementations
+
             // The get keyword has a required return, you have to return something
             get
             {
@@ -55,9 +58,9 @@ namespace CSharpBasics
             
             set
             {
-                // What the heck??? Where'd the 'value' come from?
+                // Where'd the 'value' come from?
                 // It's a built in keyword representing incoming date. If a programmer uses
-                // My set method, whatever is passed into this property to the right of the
+                // my set method, whatever is passed into this property to the right of the
                 // assignment operator will be substituted for the keyword value;
                 _address = value;
             }
@@ -68,7 +71,7 @@ namespace CSharpBasics
             // Constructor to create a person
             // There is a mandatory parameter to create an instance of a person
             // This is how you set your Birthday 'public' get with a 'private'
-            // Missing 'set' keyword
+            // missing 'set' keyword
             this.Birthday = birthday;
         }
     }
